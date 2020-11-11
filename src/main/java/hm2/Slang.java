@@ -27,7 +27,7 @@ public class Slang {
     }
 
     public static void main(String[] args) {
-        String str = "FYI my dog is very :(. ¯\\_(ツ)_/¯";
+        String str = "FYI my dog is very :(. ¯\\_(ツ)_/¯. GTFO :) :)";
         String strFixedAbb = fixAbbreviations(str);
         String strFixedSmiles = fixSmiles(strFixedAbb);
         System.out.println("Input String: " + str);

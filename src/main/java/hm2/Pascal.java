@@ -16,7 +16,7 @@ public class Pascal {
 
     public static void main(String[] args) {
         System.out.println();
-        int n = 15;
+        int n = 5;
         int i;
         int j;
 
