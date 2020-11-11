@@ -4,4 +4,4 @@
 
 Author: Ahmed Manji
 
-![HW-02](https://github.com/TheDataNomad/Module3HS02Hmk/workflows/HW-02/badge.svg)
+![HW-03](https://github.com/TheDataNomad/Module3HS02Hmk/workflows/HW-03/badge.svg)
