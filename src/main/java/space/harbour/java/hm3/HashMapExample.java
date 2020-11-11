@@ -1,8 +1,5 @@
 package space.harbour.java.hm3;
 
-import space.harbour.java.hm3.MyHashMap;
-
-import java.util.Map;
 
 public class HashMapExample {
 
@@ -27,7 +24,7 @@ public class HashMapExample {
 
         MyHashMap<String, String> newBrothers = new MyHashMap<>();
 
-        //newBrothers.putAll(brothers);
+        newBrothers.putAll(brothers);
 
         //for (Map.Entry<String, String> pair : brothers.entrySet()) {
         //    System.out.println(pair.getKey() + ": " + pair.getValue());
