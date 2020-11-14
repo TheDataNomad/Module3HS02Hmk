@@ -1,4 +1,4 @@
-package space.harbour.java.hm3;
+package space.harbour.java.hm5;
 
 import java.util.AbstractMap;
 import java.util.Collection;
@@ -160,8 +160,8 @@ public class MyHashMap<K, V> implements Map<K, V> {
     @Override
     public Set<Entry<K, V>> entrySet() {
         Set<Entry<K, V>> entrySet = new HashSet<>();
-        for (LinkedList<Pair<K, V>> bucket : buckets) {
-            for (Pair<K, V> pair : bucket) {
+        for (LinkedList<MyHashMap.Pair<K, V>> bucket : buckets) {
+            for (MyHashMap.Pair<K, V> pair : bucket) {
                 entrySet.add(new AbstractMap.SimpleEntry<K, V>(pair.getKey(), pair.getValue()));
             }
         }
