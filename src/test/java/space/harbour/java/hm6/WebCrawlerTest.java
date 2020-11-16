@@ -2,6 +2,8 @@ package space.harbour.java.hm6;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.CopyOnWriteArraySet;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -22,7 +24,7 @@ public class WebCrawlerTest extends TestCase {
         int urlSize = 0;
 
         try {
-            githubPages.toVisit.add(new URL("https://vasart.github.io/supreme-potato/index.html"));
+            githubPages.toVisit.add(new URL("https://thedatanomad.github.io/index.html"));
             while (!githubPages.toVisit.isEmpty()) {
                 future = table.submit(new WebCrawler.UrlVistior());
                 urlSize = future.get().size();
@@ -33,7 +35,7 @@ public class WebCrawlerTest extends TestCase {
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
-        Assert.assertEquals(urlSize, 4);
+        Assert.assertEquals(urlSize, 8);
     }
 
     @Test
@@ -54,15 +56,14 @@ public class WebCrawlerTest extends TestCase {
     @Test
     public void test03() {
         ExecutorService table = Executors.newFixedThreadPool(8);
-        Future<CopyOnWriteArraySet> future = null;
-        Object[] futureSet = null;
-        int urlSize = 0;
+        Future<CopyOnWriteArraySet> future;
+        CopyOnWriteArraySet<URL> futureSet = new CopyOnWriteArraySet<URL>();
 
         try {
-            githubPages.toVisit.add(new URL("https://vasart.github.io/supreme-potato/index.html"));
+            githubPages.toVisit.add(new URL("https://thedatanomad.github.io/index.html"));
             while (!githubPages.toVisit.isEmpty()) {
                 future = table.submit(new WebCrawler.UrlVistior());
-                futureSet = future.get().toArray();
+                futureSet = future.get();
             }
             table.shutdown();
         } catch (MalformedURLException | InterruptedException e) {
@@ -71,7 +72,7 @@ public class WebCrawlerTest extends TestCase {
             e.printStackTrace();
         }
 
-        Assert.assertEquals("https://vasart.github.io/supreme-potato/social.html", futureSet[3].toString());
+        Assert.assertTrue(futureSet.toString().contains("https://TheDataNomad.github.io/Page7.html"));
     }
 
 }

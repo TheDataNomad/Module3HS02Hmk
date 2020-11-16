@@ -91,7 +91,7 @@ public class WebCrawler {
         int urlSize = 0;
 
         try {
-            toVisit.add(new URL("https://vasart.github.io/supreme-potato/index.html"));
+            toVisit.add(new URL("https://thedatanomad.github.io/index.html"));
             while (!toVisit.isEmpty()) {
                 future = table.submit(new UrlVistior());
                 System.out.println(future.get());
