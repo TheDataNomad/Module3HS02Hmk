@@ -1,9 +1,9 @@
-package space.harbour.java.hm8;
+package space.harbour.java.hm9;
 
 import java.util.Iterator;
 import java.util.Map;
 
-public class EuroDispenser extends DispenseChain implements Iterator {
+public class EuroDispenser extends DispenseChain implements Iterator, Cloneable {
 
     private DispenseChain nextChain;
     private Integer moneyNote;
@@ -13,6 +13,21 @@ public class EuroDispenser extends DispenseChain implements Iterator {
     public EuroDispenser(Integer moneyNote, Integer count) {
         this.moneyNote = moneyNote;
         this.count = count;
+    }
+
+    @Override
+    protected EuroDispenser clone() {
+        EuroDispenser firstChain = new EuroDispenser(moneyNote, count);
+        EuroDispenser lastChain = firstChain;
+        EuroDispenser currentContainer = (EuroDispenser) nextChain;
+        while (currentContainer != null) {
+            EuroDispenser clonedContainer = new EuroDispenser(currentContainer.moneyNote, currentContainer.count);
+            lastChain.setNextChain(clonedContainer);
+            lastChain = (EuroDispenser) lastChain.nextChain;
+            currentContainer = (EuroDispenser) currentContainer.next();
+        }
+
+        return firstChain;
     }
 
     @Override
@@ -55,9 +70,9 @@ public class EuroDispenser extends DispenseChain implements Iterator {
 
         }
         if (remainder == 0) {
-            System.out.println("Now Go Away!");
-            dispensedAmount.forEach((note, num) ->
-                    System.out.println("Dispensing " + num + " " + note + "€ notes"));
+            System.out.println("Take your money!");
+            //dispensedAmount.forEach((note, num) ->
+            //        System.out.println("Dispensing " + num + " " + note + "€ notes"));
         } else if (nextChain != null) {
             nextChain.dispense(new Amount(remainder), dispensedAmount);
         } else {
@@ -65,6 +80,5 @@ public class EuroDispenser extends DispenseChain implements Iterator {
         }
 
     }
-
 
 }

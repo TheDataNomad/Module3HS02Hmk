@@ -32,10 +32,8 @@ public class AtmDispenser {
     }
 
     public static void main(String[] args) {
-        //System.out.println("How much do you want? ");
-        //Scanner input = new Scanner(System.in);
-        //amount = input.nextInt();
         amount = 65;
+
         if (amount % 5 != 0) {
             System.out.println("Amount should be in multiple of 5s.");
             return;
