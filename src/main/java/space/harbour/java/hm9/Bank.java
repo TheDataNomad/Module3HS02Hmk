@@ -33,7 +33,7 @@ public class Bank implements AtmObserver, Cloneable {
     @Override
     public void update(AtmDispenser atmDispenser) {
         System.out.println("ATM [" + atmDispenser.hashCode()
-                + "] Status: " + atmDispenser.notifyBank() );
+                + "] Status: " + atmDispenser.notifyBank());
 
     }
 }

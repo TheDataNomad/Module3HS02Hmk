@@ -21,7 +21,8 @@ public class EuroDispenser extends DispenseChain implements Iterator, Cloneable 
         EuroDispenser lastChain = firstChain;
         EuroDispenser currentContainer = (EuroDispenser) nextChain;
         while (currentContainer != null) {
-            EuroDispenser clonedContainer = new EuroDispenser(currentContainer.moneyNote, currentContainer.count);
+            EuroDispenser clonedContainer = new EuroDispenser(currentContainer.moneyNote,
+                    currentContainer.count);
             lastChain.setNextChain(clonedContainer);
             lastChain = (EuroDispenser) lastChain.nextChain;
             currentContainer = (EuroDispenser) currentContainer.next();

@@ -18,15 +18,6 @@ public class AtmDispenser implements Cloneable, ContainerObservable {
         this.atmObservers = new ArrayList<Bank>();
     }
 
-    //public void giveMeMoney(int amount) {
-    //    System.out.print("ATM (" + this.hashCode() + "): ");
-    //    denominationContainer.dispense(amount, bills);
-    //    if (balance() == 0) {
-    //        notifyAllObservers();
-    //    }
-    //    bills.clear();
-    //}
-
     public void dispenseMoney(Integer amount) {
         System.out.print("\nATM (" + this.hashCode() + "): \n");
         System.out.println("You want " + amount);
@@ -78,8 +69,8 @@ public class AtmDispenser implements Cloneable, ContainerObservable {
             numofNotes = currentContainer.getCount();
             if (numofNotes == 0) {
                 message.append("Container ")
-                        .append(containerNumber).append(": (").
-                        append(currentContainer.getMoneyNote())
+                        .append(containerNumber).append(": (")
+                        .append(currentContainer.getMoneyNote())
                         .append("€) is empty.\n");
             }
         }
