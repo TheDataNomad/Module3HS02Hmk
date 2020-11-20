@@ -27,7 +27,7 @@ public class AtmDemo {
         atmDispenser.dispenseMoney(130);
         atmDispenser2.dispenseMoney(120);
 
-        atmDispenser2.addObserver(bankDepartment);
+        //atmDispenser2.addObserver(bankDepartment);
         atmDispenser.addObserver(bankDepartment);
         bankDepartment.update(atmDispenser2);
         bankDepartment.update(atmDispenser);
@@ -35,6 +35,5 @@ public class AtmDemo {
         System.out.println("\n[After] Money in the bank ATMs: "
                 + bankDepartment.getTotalBalance() + "€");
         System.out.println("Number of ATMs: " + bankDepartment.getNumOfDispenser());
-        //atmDispenser.notifyBank();
     }
 }
