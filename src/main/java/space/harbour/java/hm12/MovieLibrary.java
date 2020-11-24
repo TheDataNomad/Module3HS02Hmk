@@ -89,7 +89,6 @@ public class MovieLibrary {
         put("/movies/:title", (request, response) -> {
             String title = request.params(":title");
 
-            // Update fields (just use title for example)
             BasicDBObject newData = new BasicDBObject();
             String newTitle = request.queryParams("title");
 
