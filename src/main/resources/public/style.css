@@ -1,0 +1,19 @@
+body {
+    background-color: grey;
+    margin: auto;
+    max-width: 500px;
+}
+h1 {
+    color: blue;
+}
+p {
+    color: black;
+}
+header {
+    font-size: 28px;
+}
+footer {
+    width: 100%;
+    bottom: 5px;
+    position: center;
+}
