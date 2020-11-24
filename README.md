@@ -1,6 +1,6 @@
 
 =======
-# All Hmks - up to 10
+# All Hmks - up to 12
 
 Author: Ahmed Manji
 
